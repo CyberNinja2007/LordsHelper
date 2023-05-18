@@ -1,10 +1,10 @@
 {
   "name": "lords_helper_api",
   "version": "1.0.0",
-  "description": "API for LordsHelper Web-app",
+  "description": "API for Lords Helper Web-app",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon app.js"
   },
   "author": "Georgy Nikitin",
   "license": "ISC",
