@@ -1,7 +1,3 @@
-<script>
-  import Page from "../login/+page.svelte";
-</script>
-
 <svelte:head>
   <title>LordsHelper | Профиль</title>
 </svelte:head>
@@ -12,33 +8,21 @@
 
     <div class="flex flex-row border-b items-center justify-between pb-2">
       <!-- Hearder -->
-      <span class="text-lg font-semibold capitalize dark:text-gray-300">
+      <span class="text-lg font-semibold capitalize">
         Профиль
       </span>
 
       <span class="relative">
         <a
-          class="hover:text-green-500 dark-hover:text-green-300
-					text-gray-600 dark:text-gray-300"
+          class="ringbell
+					text-gray-600"
           href="#"
         >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-          </svg>
+        <i class="fa-solid fa-bell fa-lg"></i>
         </a>
         <div
-          class="absolute w-2 h-2 rounded-full bg-green-500
-					dark-hover:bg-green-300 right-0 mb-5 bottom-0"
+          class="absolute w-2 h-2 rounded-full bg-main
+					right-0 mb-5 bottom-0"
         />
       </span>
     </div>
@@ -46,7 +30,7 @@
     <div class="flex flex-col text-center mt-8">
       <!-- User info -->
       <i class="fa-solid fa-user-large fa-2xl" />
-      <h2 class="mt-4 text-xl dark:text-gray-300 font-medium capitalize">
+      <h2 class="mt-4 text-xl font-medium capitalize">
         Привет, %Username%
       </h2>
     </div>
@@ -73,7 +57,7 @@
       </li>
     </ul>
 
-    <div class="mt-auto flex items-center text-red-700 dark:text-red-400">
+    <div class="mt-auto flex items-center text-red-700 ">
       <!-- important action -->
       <a href="#home" class="flex items-center">
         <i class="fa-solid fa-right-from-bracket fill-current h-5 w-5" />
@@ -93,7 +77,7 @@
       >
         <div class="flex items-center select-none">
           <span
-            class="hover:text-green-500 dark-hover:text-green-300
+            class="hover:text-green-500
 						cursor-pointer mr-3 transition duration-500 ease-in-out"
           >
             <i class="fa-solid fa-magnifying-glass h-5 w-5 fill-current" />
@@ -168,7 +152,7 @@
       </div>
       <div
         class="mt-2 flex px-4 py-4 justify-between bg-white
-				dark:bg-gray-600 shadow-xl rounded-lg cursor-pointer"
+				shadow-xl rounded-lg cursor-pointer"
       >
         <!-- Card -->
 
@@ -181,7 +165,7 @@
             class="ml-4 flex flex-col capitalize text-gray-600 px-10 border-l"
           >
             <span>Название</span>
-            <span class="mt-2 text-black dark:text-gray-200">
+            <span class="mt-2 text-black">
               carmen beltran
             </span>
           </div>
@@ -191,22 +175,22 @@
           <!-- Rigt side -->
           <div class="mr-16 flex flex-col capitalize text-gray-600 pr-5 border-r">
             <span>группа</span>
-            <span class="mt-2 text-black dark:text-gray-200"> Aero treck </span>
+            <span class="mt-2 text-black"> Aero treck </span>
           </div>
 
           <div class="mr-16 flex flex-col capitalize text-gray-600 pr-5 border-r">
             <span>уровень</span>
-            <span class="mt-2 text-black dark:text-gray-200"> 12 </span>
+            <span class="mt-2 text-black"> 12 </span>
           </div>
 
           <div class="mr-16 flex flex-col capitalize text-gray-600 pr-5 border-r">
             <span>статус</span>
-            <span class="mt-2 text-black dark:text-gray-200"> Онлайн </span>
+            <span class="mt-2 text-second"> Онлайн </span>
           </div>
 
           <div class="mr-16 flex flex-col capitalize text-gray-600">
             <span>дата создания</span>
-            <span class="mt-2 text-green-400"> 20.02.2020 </span>
+            <span class="mt-2 text-black"> 20.02.2020 </span>
           </div>
         </div>
       </div>

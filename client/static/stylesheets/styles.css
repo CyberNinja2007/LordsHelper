@@ -906,8 +906,21 @@ a:hover.back-to-top {
     color: #2596be;
 }
 
+.text-second {
+    --tw-text-opacity: 1;
+    color: #97c85b;
+}
+
 .profile-side-navbar {
     background-color: #f1f9fc;
+}
+
+.bg-main{
+    background-color: #2596be;
+}
+
+.ringbell:hover {
+    color: #2596be;
 }
 
 /*************************/
