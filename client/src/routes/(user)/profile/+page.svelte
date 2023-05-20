@@ -107,10 +107,6 @@
             <span class="text-main cursor-pointer"> Все </span>
           </span>
           <span class="ml-12">
-            Дата добавления:
-            <span class="text-main cursor-pointer"> За всё время </span>
-          </span>
-          <span class="ml-12">
             Уровень
             <span class="text-main cursor-pointer"> Все </span>
           </span>
