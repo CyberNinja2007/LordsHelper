@@ -1,0 +1,28 @@
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const sequelize = require("./db.js");
+const models = require("./models/models.js");
+const router = require("./routes/index.js");
+const errorHandler = require("./middleware/errorHandlingMiddleware.js");
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+app.use("/api", router);
+app.use(errorHandler);
+
+const start = async () => {
+  try {
+    sequelize.authenticate();
+    sequelize.sync();
+    app.listen(process.env.PORT, () => {
+      console.log(`Приложение запущено на порту ${process.env.PORT}`);
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+start();
