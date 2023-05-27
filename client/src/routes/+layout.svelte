@@ -1,6 +1,6 @@
 <script>
-  import Footer from "../components/footer.svelte";
   import { fade, fly } from "svelte/transition";
+  import "../app.css";
 
   const visibilityBorder = 700;
   let userScrolled = 0;
@@ -49,9 +49,3 @@
     <slot />
   </div>
 {/key}
-
-<style>
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-</style>

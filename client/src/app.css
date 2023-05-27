@@ -30,6 +30,10 @@ Colors:
 /*     General Styles     */
 /**************************/
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body,
 p {
     color: #6b747b;
@@ -161,6 +165,12 @@ h6 {
 .btn-solid-lg .fab.fa-google-play {
     font-size: 1rem;
 }
+
+@layer base {
+    .btn-solid-lg.danger {
+        @apply bg-red-400 border-red-400 border-solid border-2 hover:border-red-400 hover:bg-transparent hover:text-red-400
+    }
+  }
 
 .btn-solid-lg.secondary {
     border: 1px solid #97c85b;
@@ -294,19 +304,6 @@ h6 {
     padding-bottom: 0.5rem;
     height: 3.25rem;
     color: #7d838a;
-}
-
-select {
-    /* you should keep these first rules in place to maintain cross-browser behavior */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    -o-appearance: none;
-    appearance: none;
-    background-image: url("../images/down-arrow.png");
-    background-position: 96% 50%;
-    background-repeat: no-repeat;
-    outline: none;
 }
 
 .form-control-textarea {
@@ -678,7 +675,7 @@ input[type="checkbox"] {
 .cards-2 {
     position: relative;
     padding-top: 8rem;
-    background: linear-gradient(rgba(50, 60, 70, 0.9), rgba(50, 60, 70, 0.9)), url("../images/pricing_background.jpg") center center no-repeat;
+    background: linear-gradient(rgba(50, 60, 70, 0.9), rgba(50, 60, 70, 0.9)), url("../static/pricing_background.jpg") center center no-repeat;
     background-size: cover;
     text-align: center;
 }
@@ -837,7 +834,7 @@ a.back-to-top {
     width: 42px;
     height: 42px;
     border-radius: 30px;
-    background: #343e48 url("../images/up-arrow.png") no-repeat center 47%;
+    background: #343e48 url("../static/up-arrow.png") no-repeat center 47%;
     background-size: 18px 18px;
     text-indent: -9999px;
 }

@@ -184,7 +184,7 @@
   <div class="container px-4 sm:px-8 lg:grid lg:grid-cols-12 lg:gap-x-12">
     <div class="lg:col-span-2 overflow-hidden" />
     <div class="lg:col-span-3">
-      <img src="/images/guild-image.svg" alt="Guild icon" style="width:20em;" />
+      <img src="guild-image.svg" alt="Guild icon" style="width:20em;" />
     </div>
     <div class="lg:col-span-5">
       <div class="mb-16 lg:mb-0 xl:mt-16">
@@ -238,7 +238,7 @@
     </div>
     <div class="lg:col-span-3">
       <img
-        src="/images/statistics-image.svg"
+        src="statistics-image.svg"
         alt="Guild icon"
         style="width:20em;"
       />
@@ -591,7 +591,7 @@
 <div id="conclusion" class="basic-5">
   <div class="container px-4 sm:px-8 lg:grid lg:grid-cols-2">
     <div class="mb-16 lg:mb-0">
-      <img src="images/favicon.svg" alt="Главный логотип проекта" />
+      <img src="favicon.svg" alt="Главный логотип проекта" />
     </div>
     <div class="lg:mt-24 xl:mt-44 xl:ml-12">
       <p class="mb-9 text-gray-800 text-3xl leading-10">

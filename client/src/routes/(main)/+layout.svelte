@@ -1,5 +1,5 @@
 <script>
-  import Footer from "../../components/footer.svelte";
+  import Footer from "../../components/Footer.svelte";
 
     let navbar;
     let navbarCollapse;
@@ -58,7 +58,7 @@
         href="/"
       >
         <img
-          src="images/navbar-logo.svg"
+          src="navbar-logo.svg"
           alt="Главный логотип проекта"
           class="h-14"
         />

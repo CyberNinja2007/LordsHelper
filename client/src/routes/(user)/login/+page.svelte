@@ -1,6 +1,4 @@
 <script>
-  import { enhance } from "$app/forms";
-
   export let form;
 </script>
 
@@ -27,12 +25,16 @@
     <div class="w-full md:w-full lg:w-9/12 mx-auto md:mx-0">
       <div class="bg-white p-10 flex flex-col w-full shadow-xl rounded-xl">
         <h2 class="text-2xl font-bold text-gray-800 text-left mb-5">Вход</h2>
-        <form action="?/login" class="w-full" method="POST" use:enhance>
+        <form class="w-full" method="POST" action="login">
+          {#if form?.isError}
+            <p class="text-red-600">{form.error}</p>
+          {/if}
           <div id="input" class="flex flex-col w-full my-5">
             <label for="email" class="text-gray-500 mb-2">E-mail</label>
             <input
               type="email"
               id="email"
+              name="email"
               placeholder="Пожалуйста введите свой e-mail"
               class="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:shadow-lg"
               required
@@ -43,20 +45,12 @@
             <input
               type="password"
               id="password"
+              name="password"
               placeholder="Пожалуйста введите свой пароль"
               class="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:shadow-lg"
               required
             />
           </div>
-
-          {#if form?.invalid}
-            <p class="error">Введите email или пароль.</p>
-          {/if}
-
-          {#if form?.credentials}
-            <p class="error">Вы ввели неверные данные.</p>
-          {/if}
-
           <div class="flex flex-col w-full my-5">
             <button
               type="submit"
