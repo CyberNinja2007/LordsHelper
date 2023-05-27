@@ -1,58 +1,64 @@
-const Bot = require("../models/models.js");
+const botService = require("../services/botService.js");
 
 class BotController {
-  async create(req, res, next) {
+  async getAll(req, res, next) {
     try {
-      //TODO: реализовать создание бота посредством отправки HTTP запроса и получения его данных
-      const bot = await Bot.create({});
-      const resources = await Resources.create({});
+      const { group, level, limit, page } = req.query;
+      const access = req.headers.authorization;
+      await botService.check(access);
+
+      const bots = await botService.getAll(group, level, limit, page);
+
+      return res.json(bots.bots);
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  async getOne(req, res, next) {
+    try {
+      const { id } = req.params;
+      const access = req.headers.authorization;
+      await botService.check(access);
+
+      const bot = await botService.getOne(id);
 
       return res.json(bot);
     } catch (e) {
-      next(ApiError.badRequest(e.message));
+      next(e);
     }
   }
 
-  async getAll(req, res) {
-    let { group, level, limit, page } = req.query;
-    page = page || 1;
-    limit = limit || 12;
-    let offset = page * limit - limit;
-    let bots;
-    if (!group && !level) {
-      bots = await Bot.findAndCountAll({ limit, offset });
+  async create(req, res, next) {
+    try {
+      const { id } = req.params;
+      console.log("ID IS");
+      console.log(id);
+      console.log(req);
+      const access = req.body.headers.authorization;
+      const userInfo = await botService.check(access);
+      const bot = await botService.create(userInfo);
+
+      return res.json(bot);
+    } catch (e) {
+      next(e);
     }
-    if (group && !level) {
-      bots = await Bot.findAndCountAll({
-        where: { group },
-        limit,
-        offset,
-      });
-    }
-    if (!group && level) {
-      bots = await Bot.findAndCountAll({
-        where: { level },
-        limit,
-        offset,
-      });
-    }
-    if (group && level) {
-      bots = await Bot.findAndCountAll({
-        where: { level, group },
-        limit,
-        offset,
-      });
-    }
-    return res.json(bots);
   }
 
-  async getOne(req, res) {
-    const { id } = req.params;
-    const bot = await Bot.findOne({
-      where: { id },
-      include: [{ model: DeviceInfo, as: "info" }],
-    });
-    return res.json(bot);
+  async deleteOne(req, res, next) {
+    try {
+      const { id } = req.params;
+      console.log("ID IS");
+      console.log(id);
+      const access = req.body.headers.authorization;
+      await botService.check(access);
+
+      const bot = await botService.deleteOne(id);
+
+      return res.json(bot);
+    } catch (e) {
+      next(e);
+    }
   }
 }
 

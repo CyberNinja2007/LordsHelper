@@ -6,9 +6,16 @@ const models = require("./models/models.js");
 const router = require("./routes/index.js");
 const errorHandler = require("./middleware/errorHandlingMiddleware.js");
 
+const corsOptions = {
+  origin: process.env.WEB_APP,
+  credentials: true, // Allow cookies to be sent with requests
+  methods: ['GET', 'POST'], // Allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+};
+
 const app = express();
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/api", router);
 app.use(errorHandler);

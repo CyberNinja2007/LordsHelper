@@ -8,11 +8,18 @@ const User = sequelize.define('user', {
     role: {type: DataTypes.STRING, defaultValue: "user"}
 });
 
-const Bot = sequelize.define('bot', {
+const Token = sequelize.define('token', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    refresh: {type: DataTypes.STRING, unique: true}
+});
+
+const Bot = sequelize.define('bot', {
+    id: {type: DataTypes.INTEGER, primaryKey: true},
+    accessKey: {type: DataTypes.STRING(417)},
+    ssoToken: {type: DataTypes.STRING(600)},
     name: {type: DataTypes.STRING, unique: true},
     group: {type: DataTypes.STRING, defaultValue: ""},
-    status: {type: DataTypes.STRING},
+    status: {type: DataTypes.STRING, defaultValue: "Ожидает входа"},
     level: {type: DataTypes.INTEGER, defaultValue: 1},
     diamonds: {type: DataTypes.BIGINT, defaultValue: 200},
     stamina: {type: DataTypes.INTEGER, defaultValue: 120},
@@ -31,12 +38,21 @@ const Resources = sequelize.define('resources', {
     gold: {type: DataTypes.INTEGER, defaultValue: 150000},
 });
 
-User.hasMany(Bot);
+User.hasMany(Bot, {
+    onDelete: 'CASCADE'
+  });
 Bot.belongsTo(User);
 
-Bot.hasOne(Resources);
+User.hasOne(Token, {
+    onDelete: 'CASCADE'
+  });
+Token.belongsTo(User);
+
+Bot.hasOne(Resources, {
+    onDelete: 'CASCADE'
+  });
 Resources.belongsTo(Bot);
 
 module.exports = {
-    User, Bot, Resources
+    User, Token, Bot, Resources
 };
